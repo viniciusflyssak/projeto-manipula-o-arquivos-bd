@@ -21,10 +21,6 @@ object FrmImagem: TFrmImagem
     Height = 274
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = 344
-    ExplicitTop = 280
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object img: TImage
       Left = 1
       Top = 1
@@ -43,9 +39,6 @@ object FrmImagem: TFrmImagem
       Height = 41
       Align = alBottom
       TabOrder = 0
-      ExplicitLeft = 376
-      ExplicitTop = 224
-      ExplicitWidth = 185
       object lblAviso: TLabel
         Left = 1
         Top = 1
@@ -70,9 +63,6 @@ object FrmImagem: TFrmImagem
     Height = 41
     Align = alBottom
     TabOrder = 1
-    ExplicitLeft = 312
-    ExplicitTop = 248
-    ExplicitWidth = 185
     object btnSalvar: TSpeedButton
       Left = 392
       Top = 1

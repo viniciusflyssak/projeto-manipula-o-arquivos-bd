@@ -1,0 +1,117 @@
+object FrmVideo: TFrmVideo
+  Left = 0
+  Top = 0
+  Caption = 'Video'
+  ClientHeight = 356
+  ClientWidth = 505
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnlBotoes: TPanel
+    Left = 0
+    Top = 315
+    Width = 505
+    Height = 41
+    Align = alBottom
+    TabOrder = 0
+    ExplicitTop = 190
+    object btnSalvar: TSpeedButton
+      Left = 392
+      Top = 1
+      Width = 112
+      Height = 39
+      Align = alRight
+      Caption = 'Sim'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object btnCancelar: TSpeedButton
+      Left = 1
+      Top = 1
+      Width = 112
+      Height = 39
+      Align = alLeft
+      Caption = 'N'#227'o'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      ExplicitLeft = 392
+    end
+  end
+  object pnlFundo: TPanel
+    Left = 0
+    Top = 0
+    Width = 505
+    Height = 233
+    Align = alClient
+    TabOrder = 1
+    ExplicitTop = -43
+    ExplicitHeight = 274
+  end
+  object pnlAviso: TPanel
+    Left = 0
+    Top = 274
+    Width = 505
+    Height = 41
+    Align = alBottom
+    TabOrder = 2
+    ExplicitLeft = 1
+    ExplicitTop = -1
+    ExplicitWidth = 503
+    object lblAviso: TLabel
+      Left = 1
+      Top = 1
+      Width = 503
+      Height = 39
+      Align = alClient
+      Caption = 'Deseja baixar essa imagem?'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -32
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      ExplicitWidth = 455
+    end
+  end
+  object pnlMediaPlayer: TPanel
+    Left = 0
+    Top = 233
+    Width = 505
+    Height = 41
+    Align = alBottom
+    Caption = 'Panel1'
+    TabOrder = 3
+    ExplicitLeft = 176
+    ExplicitTop = 120
+    ExplicitWidth = 185
+    object mdp: TMediaPlayer
+      Left = 1
+      Top = 1
+      Width = 496
+      Height = 39
+      Align = alClient
+      DoubleBuffered = True
+      Display = pnlFundo
+      ParentDoubleBuffered = False
+      TabOrder = 0
+      ExplicitLeft = 0
+      ExplicitTop = 47
+      ExplicitWidth = 253
+    end
+  end
+end

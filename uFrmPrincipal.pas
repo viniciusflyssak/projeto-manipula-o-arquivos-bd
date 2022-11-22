@@ -9,7 +9,7 @@ uses
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, uDM, FileCtrl, Vcl.Grids, Vcl.DBGrids, Vcl.Imaging.pngimage,
-  uFrmImagem, JPeg, ShellApi;
+  uFrmImagem, JPeg, uFrmVideo;
 
 type
   TfrmPrincipal = class(TForm)
@@ -133,6 +133,7 @@ procedure TfrmPrincipal.lblNomeArquivoClick(Sender: TObject);
 var
   Stream: TMemoryStream;
   FrmImagem: TFrmImagem;
+  FrmVideo: TFrmVideo;
 begin
   FArquivoSelecionado := selecionaArquivo;
   if not(Trim(FArquivoSelecionado) = '') then
@@ -157,7 +158,24 @@ begin
         FrmImagem.Free;
         FreeAndNil(Stream);
       end;
-    end;
+    end
+    else
+      if (UpperCase(ExtractFileExt(FArquivoSelecionado)) = '.MP3') or (UpperCase(ExtractFileExt(FArquivoSelecionado)) = '.MP4') then
+      begin
+        FrmVideo := TFrmVideo.Create(nil);
+        try
+          FrmVideo.lblAviso.Caption := 'Deseja salvar essa mídia?';;
+          FrmVideo.ArquivoSelecionado := FArquivoSelecionado;
+          if not(FrmVideo.ShowModal = mrOk) then
+          begin
+            FArquivoSelecionado := '';
+            lblNomeArquivo.Caption := 'Nenhum arquivo selecionado! Clique para selecionar!';
+          end;
+        finally
+          FrmVideo.Free;
+        end;
+      end;
+
     if not(Trim(FArquivoSelecionado) = '') then
       lblNomeArquivo.Caption := FArquivoSelecionado;
   end
@@ -229,6 +247,7 @@ procedure TfrmPrincipal.btnBaixarArquivoClick(Sender: TObject);
 var
   Stream: TMemoryStream;
   FrmImagem: TFrmImagem;
+  FrmVideo: TFrmVideo;
   function selecionaDir: String;
   var
     Dir: string;
@@ -262,7 +281,21 @@ begin
       finally
         FrmImagem.Free;
       end;
-    end;
+    end
+    else
+      if (UpperCase(ExtractFileExt(FArquivoSelecionado)) = '.MP3') or (UpperCase(ExtractFileExt(FArquivoSelecionado)) = '.MP4') then
+      begin
+        FrmVideo := TFrmVideo.Create(nil);
+        try
+          FrmVideo.ArquivoSelecionado := '';
+          if not(FrmVideo.ShowModal = mrOk) then
+          begin
+            exit;
+          end;
+        finally
+          FrmVideo.Free;
+        end;
+      end;
 
     Stream.SaveToFile(selecionaDir + '\' + FArquivoSelecionado);
   finally
